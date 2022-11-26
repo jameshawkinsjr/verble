@@ -210,24 +210,33 @@ const Home = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Verble</h1>
-        <h2>Number of Guesses:</h2>
-        {numGuesses}
-        {state === ERROR ? (
-          <h2 className={styles.error}>Invalid Word. Try again.</h2>
-        ) : (
-          <>
-            <h2>Your Guess:</h2>
-            <Guess />
-          </>
-        )}
+        <div className={styles.stats}>
+          <div className={styles.statContainer}>
+            <h2>Number of Guesses</h2>
+            <h2>{numGuesses}</h2>
+          </div>
+          <div className={styles.statContainer}>
+            {state === ERROR ? (
+              <>
+                <h2 className={styles.error}>Invalid Word. Try again.</h2>
+                <Guess />
+              </>
+            ) : (
+              <>
+                <h2>Your Guess</h2>
+                <Guess />
+              </>
+            )}
+          </div>
+        </div>
 
-        <p className={styles.description}>
-          {state === LISTENING ? (
-            <button>Listening</button>
-          ) : (
-            <button onClick={onClick}>Click here and say your guess</button>
-          )}
-        </p>
+        {state === LISTENING ? (
+          <button className={styles.button}>Listening</button>
+        ) : (
+          <button className={styles.button} onClick={onClick}>
+            Click here and say your guess
+          </button>
+        )}
 
         <LoadingBar />
       </main>
