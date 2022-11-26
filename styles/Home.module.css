@@ -108,6 +108,10 @@
   margin-left: 0.5rem;
 }
 
+.error {
+  color: red;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -126,4 +130,93 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+@keyframes quiet {
+  25% {
+    transform: scaleY(0.6);
+  }
+  50% {
+    transform: scaleY(0.4);
+  }
+  75% {
+    transform: scaleY(0.8);
+  }
+}
+
+@keyframes normal {
+  25% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.4);
+  }
+  75% {
+    transform: scaleY(0.6);
+  }
+}
+@keyframes loud {
+  25% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.4);
+  }
+  75% {
+    transform: scaleY(1.2);
+  }
+}
+
+.boxContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  --boxSize: 8px;
+  --gutter: 4px;
+  width: calc((var(--boxSize) + var(--gutter)) * 8);
+}
+
+.box {
+  transform: scaleY(0.4);
+  height: 100%;
+  width: var(--boxSize);
+  background: #12e2dc;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  border-radius: 8px;
+}
+
+.boxError {
+  background: red;
+}
+
+.quiet {
+  animation-name: quiet;
+}
+
+.normal {
+  animation-name: normal;
+}
+
+.loud {
+  animation-name: loud;
+}
+
+.guessContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 200px;
+}
+
+.white {
+  color: white;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: yellow;
 }
